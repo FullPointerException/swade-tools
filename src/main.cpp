@@ -1,13 +1,12 @@
 #include <iostream>
 
-#include "Stub.h"
+#include "ReplApp.h"
 
 int main(int argc, char** argv)
 {
-    std::cout << "SWADE Tools" << std::endl;
+    ReplApp app(std::cin, std::cout);
 
-    Stub stub;
-    std::cout << stub.stub() << std::endl;
+    int result = app.run();
 
-    return 0;
+    return result;
 }
