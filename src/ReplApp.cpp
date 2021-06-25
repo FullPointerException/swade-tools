@@ -20,9 +20,10 @@ int ReplApp::run()
     {
         _out << "> ";
         std::string rawInput;
-        _in >> rawInput;
+        getline(_in, rawInput);
 
         std::string parsedInput = InputSanitizer::sanitize(rawInput);
+        _out << "PARSED: " << parsedInput << std::endl;
 
         if(isMain)
         {

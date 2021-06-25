@@ -30,4 +30,12 @@ TEST_CASE("Sanitizes Inputs")
 
         REQUIRE(sanitized == std::string("command"));
     }
+
+    SECTION("Leaves midstring white space")
+    {
+        std::string original(" one two ");
+        std::string sanitized = InputSanitizer::sanitize(original);
+
+        REQUIRE(sanitized == std::string("one two"));
+    }
 }
