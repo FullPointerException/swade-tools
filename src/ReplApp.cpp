@@ -23,9 +23,12 @@ int ReplApp::run()
         getline(_in, rawInput);
 
         std::string parsedInput = InputSanitizer::sanitize(rawInput);
-        _out << "PARSED: " << parsedInput << std::endl;
 
-        if(isMain)
+        if(parsedInput.empty())
+        {
+            // Noop
+        }
+        else if(isMain)
         {
             if( (parsedInput == std::string("q")) || (parsedInput == std::string("quit")) )
             {

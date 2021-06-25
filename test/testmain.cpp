@@ -38,4 +38,14 @@ TEST_CASE("Sanitizes Inputs")
 
         REQUIRE(sanitized == std::string("one two"));
     }
+
+    SECTION("All space string is ok")
+    {
+        REQUIRE(InputSanitizer::sanitize(std::string("   ")) == std::string(""));
+    }
+
+    SECTION("Empty string is ok")
+    {
+        REQUIRE(InputSanitizer::sanitize(std::string("")) == std::string(""));
+    }
 }

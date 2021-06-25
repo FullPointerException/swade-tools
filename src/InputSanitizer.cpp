@@ -8,6 +8,12 @@ std::string InputSanitizer::sanitize(const std::string& original)
         [](unsigned char c){ return !std::isspace(c);});
     auto lastChar = std::find_if(original.rbegin(), original.rend(),
         [](unsigned char c){ return !std::isspace(c);});
+
+    if(firstChar == original.end())
+    {
+        return "";
+    }
+
     std::string output(firstChar, lastChar.base());
 
     std::transform(output.begin(), output.end(), output.begin(),
